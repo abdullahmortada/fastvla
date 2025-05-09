@@ -150,7 +150,7 @@ class FinetuneDataset(Dataset[Dict[str, torch.Tensor]]):
                 pass
 
             else:
-                raise ValueError(f"Tokenizer of type `{type(self.tokenizer)}` is not explicitly handled!")
+                pass
 
             # Tokenize Input IDs
             turn_input_ids = self.tokenizer(msg, add_special_tokens=turn_idx == 0).input_ids

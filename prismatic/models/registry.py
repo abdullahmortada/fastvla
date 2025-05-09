@@ -683,6 +683,20 @@ MODEL_REGISTRY = {
             "train_epochs": 1,
         }
     },
+
+    "prism-dinosiglip-224px+distilgpt2": {
+        "model_id": "prism-dinosiglip-224px+distilgpt2",
+        "names": ["DINOSigLIP + DistilGPT2"],
+        "description": {
+            "name": "DINOSigLIP + DistilGPT2",
+            "optimization_procedure": "single-stage",
+            "visual_representation": "DINOv2 ViT-L/14 + SigLIP ViT-SO/14  @ 224px",
+            "image_processing": "Naive Resize",
+            "language_model": "DistilGPT2",
+            "datasets": ["LLaVa v1.5 Instruct"],
+            "train_epochs": 4,
+        }
+    },
 }
 
 # Build Global Registry (Model ID, Name) -> Metadata

@@ -497,6 +497,16 @@ class Prism_7B_DINOSigLIP_224px(Exp_7B_One_Stage):
     finetune_epochs: int = 2
 
 
+@dataclass
+class Prism_DistilGPT2_DINOSigLIP_224px(Exp_7B_One_Stage):
+    model_id: str = "prism-dinosiglip-224px+distilgpt2"
+    vision_backbone_id: str = "dinosiglip-vit-so-224px"
+    image_resize_strategy: str = "resize-naive"
+    llm_backbone_id: str = "distilgpt2"
+    arch_specifier: str = "no-align+fused-gelu-mlp"
+    finetune_epochs: int = 4
+    finetune_max_steps: 1000
+
 # === Define a Model Registry Enum for Reference & Validation ===
 @unique
 class ModelRegistry(Enum):
@@ -573,6 +583,8 @@ class ModelRegistry(Enum):
     OPT_DINOSIGLIP_224PX_RESIZE_NAIVE = Opt_7B_DINOSigLIP_ViT_SO_p14_224px_Resize_Naive
     PRISM_DINOSIGLIP_224PX_CONTROLLED_7B = Prism_7B_DINOSigLIP_224px_Controlled
     PRISM_DINOSIGLIP_224PX_7B = Prism_7B_DINOSigLIP_224px
+
+    PRISM_DINOSIGLIP_224PX_DISTILGPT2 = Prism_DistilGPT2_DINOSigLIP_224px
 
     @property
     def model_id(self) -> str:

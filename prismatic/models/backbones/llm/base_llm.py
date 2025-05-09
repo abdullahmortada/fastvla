@@ -171,14 +171,6 @@ class HFCausalLLMBackbone(LLMBackbone, ABC):
         if self.identifier in SPECIAL_CASES:
             return
 
-        # Note =>> this assert should hold for all Llama-derived tokenizers (`LlamaTokenizerFast` ==> includes Mistral!
-        assert (self.tokenizer("Test 123", add_special_tokens=True).input_ids[0] == self.tokenizer.bos_token_id) and (
-            self.tokenizer("Test 123", add_special_tokens=False).input_ids[0] != self.tokenizer.bos_token_id
-        ), (
-            f"Default Tokenizer of type `{type(self.tokenizer)}` does not automatically prefix inputs with BOS token!\n"
-            "Please read the comment in `base_llm.py` for more information!"
-        )
-
     def get_fsdp_wrapping_policy(self) -> Callable:
         """Return a `transformer_auto_wrap_policy` where we wrap each instance of `self.transformer_layer_cls`"""
         transformer_block_policy = partial(

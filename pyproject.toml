@@ -30,7 +30,8 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
 dependencies = [
-    "accelerate>=0.25.0",
+    "accelerate==1.1.1",
+    "bitsandbytes",
     "draccus==0.8.0",
     "einops",
     # "flash_attn==2.5.5",      # Here for documentation -- install *AFTER* editable install (follow README)

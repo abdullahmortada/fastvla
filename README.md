@@ -1,3 +1,9 @@
+# FastVLA: VLA Inference For ROS
+This project was forked from the OpenVLA repository, and keeps its original documentation
+
+The ros-vla module provides a launch file to launch Rviz and Franka Panda cartesian controller. It also includes the vla-ros integration node in the src directory. 
+
+
 # OpenVLA: An Open-Source Vision-Language-Action Model
 
 [![arXiv](https://img.shields.io/badge/arXiv-2406.09246-df2a2a.svg?style=for-the-badge)](https://arxiv.org/abs/2406.09246)
